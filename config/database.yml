@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV['PGUSER'] %>
+  password: <%= ENV['PGPASSWORD'] %>
+
+development:
+  <<: *default
+  database: i_recycle_development
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: i_recycle_test
+
+production:
+  <<: *default
+  database: i_recycle_production
+  username: ''
+  password: ''
