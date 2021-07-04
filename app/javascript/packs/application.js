@@ -19,3 +19,36 @@ document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 })
+
+
+require("selectize")
+require("selectize/dist/css/selectize")
+require("selectize/dist/js/selectize")
+
+
+require("packs/category")
+require("packs/material")
+require("packs/recycle_center")
+
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
+
+function footerAlign() {
+  $('footer.container').css('display', 'block');
+  $('footer.container').css('height', 'auto');
+  var footerHeight = $('footer.container').outerHeight();
+  $('body').css('padding-bottom', footerHeight);
+  $('footer.container').css('height', footerHeight);
+}
+
+$(function() {
+  footerAlign();
+});
+
+$( window).on('resize', function() {
+  footerAlign();
+});

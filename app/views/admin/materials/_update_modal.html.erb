@@ -1,0 +1,39 @@
+<div class="modal fade" id="material_modal_update" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Enter the material name</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with class: "nifty_form" do |material| %>
+          <div class="row">
+            <div class="col form-group">
+              <%= material.collection_select :category_id, @categories, :id, :title, {prompt: "Please select a category of this material"}, {class: "form-control", id: "category_id_update"} %>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col form-group">
+                  <%= material.text_field :name, placeholder: "Material title", 
+                    class: "form-control", id: "material_name_update", required: true %>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col form-group">
+                  <%= material.text_area :description, placeholder: "Description", 
+                    class: "form-control", id: "material_description_update", required: true %>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-outline-info" id="update_material_btn" data-dismiss="modal">Update Material</button>
+          </div>
+          <%= hidden_field_tag "material_id", ""  %>
+          <%= hidden_field_tag "category_id", ""  %>
+        <% end %>
+      </div>   
+    </div>group
+  </div>
+</div>

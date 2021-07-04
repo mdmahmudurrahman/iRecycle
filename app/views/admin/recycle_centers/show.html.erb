@@ -1,0 +1,138 @@
+<div class="container pt-5">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center 
+        pb-2 mb-3 border-bottom">
+        <h1 class="h2">Recycle center details</h1>
+        
+        <button type="button" class="btn btn-outline-info" data-toggle="modal" 
+          data-target="#recycle-center-material">
+          Add new material
+        </button>
+        <div class="space-around float-right">
+          <div class="col">
+            <button type="button" class="btn btn-info float-right">
+              Total material added <span class="badge badge-secondary"><%= @material_count %></span>
+            </button>
+          </div>  
+        </div>
+    </div>
+
+    <div class="container bootstrap snippets bootdey">
+      <div class="panel-body inf-content">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-user-information">
+                        <tbody>
+                            <tr>        
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                        Name                                                
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                  <%= @recycle_center.name %>    
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                        Street                                                
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                  <%= @recycle_center.street %>     
+                                </td>
+                            </tr>
+                            <tr>    
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                        City                                                
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                  <%= @recycle_center.city %>     
+                                </td>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                        State                                                
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                  <%= @recycle_center.state %>     
+                                </td>
+                            </tr>  
+                            <tr>    
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                        Country                                                
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                  <%= @recycle_center.country %>     
+                                </td>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                                                                        
+                                    </strong>
+                                </td>
+                                <td class="text-primary">    
+                                </td>
+                            </tr>
+                            <tr>    
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                        Create At                                                
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                  <%= @recycle_center.created_at %>     
+                                </td>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                        Last Updated At                                             
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                  <%= @recycle_center.updated_at %>  
+                                </td>
+                            </tr>                    
+                        </tbody>
+                    </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>                                        
+
+
+
+
+
+
+
+
+
+  <%= render "admin/recycle_centers/add_material_modal" %>
+  
+  
+
+  <% if @material_count == 0 %>
+    <div class="">
+      <div class="jumbotron jumbotron-fluid space-around">
+        <div class="container">
+          <h1 class="display-6">No material added yet!</h1>
+          <p class="lead">You can add your desired material for this recycle center by clicking on "Add new material" button</p>
+        </div>
+      </div>
+    </div>  
+  <% else %>
+    <%= render "admin/recycle_centers/material_table" %>
+  <% end %>
+</div>

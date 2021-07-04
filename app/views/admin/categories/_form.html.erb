@@ -1,0 +1,16 @@
+<%= form_with model: [:admin, object], class: "nifty_form" do |category| %>
+    <div class="row">
+      <div class="col form-group">
+        <%= category.text_field :title, placeholder: "Category title", class: "form-control", required: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col form-group">
+        <%= category.text_area :description, placeholder: "Description", class: "form-control", required: true %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+      <%= category.submit "Save Category", class: "btn btn-outline-info" %>
+    </div>
+  <% end %>

@@ -1,0 +1,21 @@
+<%= form_with model: [:admin, object], class: "nifty_form" do |material| %>
+  <div class="row">
+    <div class="col form-group">
+      <%= material.collection_select :category_id, @categories, :id, :title, {prompt: "Please select a category of this material"}, {class: "form-control"} %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col form-group">
+      <%= material.text_field :name, placeholder: "Material name", class: "form-control", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col form-group">
+      <%= material.text_area :description, placeholder: "Description", class: "form-control", required: true %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+    <%= material.submit "Save Material", class: "btn btn-outline-info" %>
+  </div>
+<% end %>
