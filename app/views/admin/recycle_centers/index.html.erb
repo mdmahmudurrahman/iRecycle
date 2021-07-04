@@ -1,37 +1,37 @@
 <div class="container pt-5">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center 
         pb-2 mb-3 border-bottom">
-        <h1 class="h2">Categories list</h1>
+        <h1 class="h2">Recycle center list</h1>
     </div>
   
   <div class="space-around">
     <button type="button" class="btn btn-outline-info" data-toggle="modal" 
-      data-target="#category-modal">
-      Add new category
+      data-target="#recycle-center-modal">
+      Add new recycle center
     </button>
   </div>
 
-  <%= render "admin/categories/category_modal" %>
-  <%= render "admin/categories/update_modal" %>
+  <%= render "admin/recycle_centers/recycle_center_modal" %>
+  <%= render "admin/recycle_centers/update_modal" %>
   
   <div class="row space-around float-right">
     <div class="col">
       <button type="button" class="btn btn-info float-right">
-        Total categories added <span class="badge badge-secondary"><%= @category_count %></span>
+        Total recycle center added <span class="badge badge-secondary"><%= @recycle_center_count %></span>
       </button>
     </div>  
   </div>
 
-  <% if @category_count == 0 %>
+  <% if @recycle_center_count == 0 %>
     <div class="">
       <div class="jumbotron jumbotron-fluid space-around">
         <div class="container">
-          <h1 class="display-6">No categories added yet!</h1>
-          <p class="lead">You can add your desired category by clicking on "Add new category" button</p>
+          <h1 class="display-6">No recycle center added yet!</h1>
+          <p class="lead">You can add your desired recycle center by clicking on "Add new recycle center" button</p>
         </div>
       </div>
     </div>  
   <% else %>
-    <%= render "admin/categories/category_table" %>
+    <%= render "admin/recycle_centers/recycle_center_table" %>
   <% end %>
 </div>

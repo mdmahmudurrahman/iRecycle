@@ -1,0 +1,57 @@
+<div class="modal fade" id="recycle_center_modal_update" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Enter the category title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with class: "nifty_form" do |recycle_center| %>
+          <div class="row">
+            <div class="col form-group">
+              <%= recycle_center.text_field :name, placeholder: "Recycle center name", 
+                class: "form-control", id: "recycle_center_name_update", required: true %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col form-group">
+              <%= recycle_center.text_field :country, placeholder: "Country", 
+                class: "form-control", id: "recycle_center_city_update", required: true %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col form-group">
+              <%= recycle_center.text_field :name, placeholder: "State", 
+                class: "form-control", id: "recycle_center_state_update", required: true %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col form-group">
+              <%= recycle_center.text_field :name, placeholder: "Recycle center city", 
+                class: "form-control", id: "recycle_center_city_update", required: true %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col form-group">
+              <%= recycle_center.text_field :name, placeholder: "Recycle center street", 
+                class: "form-control", id: "recycle_center_street_update", required: true %>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-outline-info" id="update_recycle_center_btn" data-dismiss="modal">Update Recycle Center Info</button>
+          </div>
+
+          <%= hidden_field_tag "recycle_center_id", ""  %>
+        <% end %>
+      </div>   
+    </div>group
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<%= form_with model: [:admin, object], class: "nifty_form" do |recycle_center| %>
+  <div class="row">
+    <div class="col form-group">
+      <%= recycle_center.text_field :name, placeholder: "Recycle center name", class: "form-control", required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col form-group">
+      <%= recycle_center.select :country, options_for_select(@countries, @countries.to_hash.keys), {prompt: "Select country"}, {class: "form-control"} %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col form-group">
+      <%= recycle_center.select :state, options_for_select([], []), {prompt: "Select state"}, {class: "form-control"} %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col form-group">
+      <%= recycle_center.select :city, options_for_select([], []), {prompt: "Select city"}, {class: "form-control"} %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col form-group">
+      <%= recycle_center.text_field :street, placeholder: "Street no", class: "form-control", required: true %>
+    </div>
+  </div>
+  
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+    <%= recycle_center.submit "Save", class: "btn btn-outline-info", id: "save_recycle_center" %>
+  </div>
+<% end %>

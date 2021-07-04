@@ -1,0 +1,33 @@
+<div class="modal fade" id="recycle-center-material" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Fill up the recycle center information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with model: [@recycle_center, @material], url: create_material_admin_recycle_center_path(@recycle_center), class: "nifty_form" do |recycle_center| %>
+            <div class="row">
+                <div class="col form-group">
+                    <%= recycle_center.collection_select :materials_ids, 
+                        @materials, :id, :name, 
+                        {disabled: -> (material) {@recycle_center.materials.exists?(material.id)}, 
+                        prompt: "Please select material"}, 
+                        {class: "", multiple: true} 
+                    %>
+                </div>
+            </div>
+            
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                <%= recycle_center.submit "Save Selected Materials", class: "btn btn-outline-info" %>
+            </div>
+        <% end %>
+      
+      </div>   
+    </div>group
+  </div>
+</div>

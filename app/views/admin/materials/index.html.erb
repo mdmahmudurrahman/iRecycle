@@ -1,4 +1,37 @@
 <div class="container pt-5">
-    <h1>Admin::Materials#index</h1>
-    <p>Find me in app/views/admin/materials/index.html.erb</p>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center 
+        pb-2 mb-3 border-bottom">
+        <h1 class="h2">Materials list</h1>
+    </div>
+  
+  <div class="space-around">
+    <button type="button" class="btn btn-outline-info" data-toggle="modal" 
+      data-target="#material-modal">
+      Add new material
+    </button>
+  </div>
+
+  <%= render "admin/materials/material_modal" %>
+  <%= render "admin/materials/update_modal" %>
+  
+  <div class="row space-around float-right">
+    <div class="col">
+      <button type="button" class="btn btn-info float-right">
+        Total materials added <span class="badge badge-secondary"><%= @material_count %></span>
+      </button>
+    </div>  
+  </div>
+
+  <% if @material_count == 0 %>
+    <div class="">
+      <div class="jumbotron jumbotron-fluid space-around">
+        <div class="container">
+          <h1 class="display-6">No materials added yet!</h1>
+          <p class="lead">You can add your desired material by clicking on "Add new material" button</p>
+        </div>
+      </div>
+    </div>  
+  <% else %>
+    <%= render "admin/materials/material_table" %>
+  <% end %>
 </div>
