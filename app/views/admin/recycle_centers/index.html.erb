@@ -4,13 +4,15 @@
         <h1 class="h2">Recycle center list</h1>
     </div>
   
-  <div class="space-around">
-    <button type="button" class="btn btn-outline-info" data-toggle="modal" 
-      data-target="#recycle-center-modal">
-      Add new recycle center
-    </button>
-  </div>
-
+  <% if user_signed_in? &&  current_user.admin? %>
+    <div class="space-around">
+      <button type="button" class="btn btn-outline-info" data-toggle="modal" 
+        data-target="#recycle-center-modal">
+        Add new recycle center
+      </button>
+    </div>
+  <% end %>
+  
   <%= render "admin/recycle_centers/recycle_center_modal" %>
   <%= render "admin/recycle_centers/update_modal" %>
   

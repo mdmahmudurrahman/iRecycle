@@ -4,13 +4,15 @@
         <h1 class="h2">Materials list</h1>
     </div>
   
-  <div class="space-around">
-    <button type="button" class="btn btn-outline-info" data-toggle="modal" 
-      data-target="#material-modal">
-      Add new material
-    </button>
-  </div>
-
+  <% if user_signed_in? &&  current_user.admin? %>
+    <div class="space-around">
+      <button type="button" class="btn btn-outline-info" data-toggle="modal" 
+        data-target="#material-modal">
+        Add new material
+      </button>
+    </div>
+  <% end %>
+  
   <%= render "admin/materials/material_modal" %>
   <%= render "admin/materials/update_modal" %>
   

@@ -8,7 +8,9 @@
         <th>State</th>
         <th>City</th>
         <th>Street</th>
-        <th>Action</th>
+        <% if user_signed_in? &&  current_user.admin? %>
+          <th>Action</th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -20,13 +22,15 @@
           <td><%= recycle_center.state %></td>
           <td><%= recycle_center.city %></td>
           <td><%= recycle_center.street %></td>
-          <td>
-            <%= link_to "Delete", [:admin, recycle_center], method: :delete, data: {confirm: "Are you sure?", title: 'Confirm Deletion'} %> 
-            | 
-            <%= link_to "Edit", "#", class: "edit_recycle_center", data: {recycle_center: recycle_center} %> 
-            |
-            <%= link_to "Add recycle material", admin_recycle_center_path(recycle_center), class: "add_recycle_material", data: {recycle_center: recycle_center} %> 
-          </td>
+          <% if user_signed_in? &&  current_user.admin? %>
+            <td>
+              <%= link_to "Delete", [:admin, recycle_center], method: :delete, data: {confirm: "Are you sure?", title: 'Confirm Deletion'} %> 
+              | 
+              <%= link_to "Edit", "#", class: "edit_recycle_center", data: {recycle_center: recycle_center} %> 
+              |
+              <%= link_to "Add recycle material", admin_recycle_center_path(recycle_center), class: "add_recycle_material", data: {recycle_center: recycle_center} %> 
+            </td>
+          <% end %>  
         </tr> 
       <% end %>
     </tbody>

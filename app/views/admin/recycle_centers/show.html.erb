@@ -3,10 +3,12 @@
         pb-2 mb-3 border-bottom">
         <h1 class="h2">Recycle center details</h1>
         
-        <button type="button" class="btn btn-outline-info" data-toggle="modal" 
-          data-target="#recycle-center-material">
-          Add new material
-        </button>
+        <% if user_signed_in? &&  current_user.admin? %>
+          <button type="button" class="btn btn-outline-info" data-toggle="modal" 
+            data-target="#recycle-center-material">
+            Add new material
+          </button>
+        <% end %>
         <div class="space-around float-right">
           <div class="col">
             <button type="button" class="btn btn-info float-right">

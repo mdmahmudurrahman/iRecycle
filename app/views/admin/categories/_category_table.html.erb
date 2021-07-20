@@ -5,7 +5,9 @@
         <th>#</th>
         <th>Title</th>
         <th>Description</th>
-        <th>Action</th>
+        <% if user_signed_in? &&  current_user.admin? %>
+          <th>Action</th>
+        <% end %>  
       </tr>
     </thead>
     <tbody>
@@ -14,11 +16,13 @@
           <td><%= index + 1 %></td>
           <td><%= category.title %></td>
           <td><%= category.description %></td>
-          <td>
-            <%= link_to "Delete", [:admin, category], method: :delete, data: {confirm: "Are you sure?", title: 'Confirm Deletion'} %> 
-            | 
-            <%= link_to "Edit", "#", class: "edit_category", data: {category: category} %>
-          </td>
+          <% if user_signed_in? &&  current_user.admin? %>
+            <td>
+              <%= link_to "Delete", [:admin, category], method: :delete, data: {confirm: "Are you sure?", title: 'Confirm Deletion'} %> 
+              | 
+              <%= link_to "Edit", "#", class: "edit_category", data: {category: category} %>
+            </td>
+          <% end %>  
         </tr> 
       <% end %>
     </tbody>

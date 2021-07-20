@@ -4,13 +4,15 @@
         <h1 class="h2">Categories list</h1>
     </div>
   
-  <div class="space-around">
-    <button type="button" class="btn btn-outline-info" data-toggle="modal" 
-      data-target="#category-modal">
-      Add new category
-    </button>
-  </div>
-
+  <% if user_signed_in? &&  current_user.admin? %>
+    <div class="space-around">
+      <button type="button" class="btn btn-outline-info" data-toggle="modal" 
+        data-target="#category-modal">
+        Add new category
+      </button>
+    </div>
+  <% end %>
+  
   <%= render "admin/categories/category_modal" %>
   <%= render "admin/categories/update_modal" %>
   
