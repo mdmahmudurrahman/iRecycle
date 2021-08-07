@@ -1,6 +1,6 @@
 class Admin::MaterialsController < ApplicationController
   before_action :load_material, only: %i(edit update destroy)
-  
+
   def index
     @materials = Material.all
     @material_count = @materials.count
@@ -24,7 +24,6 @@ class Admin::MaterialsController < ApplicationController
   end
 
   def update
-    binding.pry
     @material.update material_params
     respond_to do |format|
       format.js
@@ -48,4 +47,3 @@ class Admin::MaterialsController < ApplicationController
   def material_params
     params.require(:material).permit :name, :description, :category_id
   end
-end

@@ -29,7 +29,6 @@ class Admin::CategoriesController < ApplicationController
   # end
 
   def update
-    binding.pry
     @category.update category_params
     respond_to do |format|
       format.js
@@ -55,4 +54,3 @@ class Admin::CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit :title, :description
   end
-end
